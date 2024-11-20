@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+
+        <h1>Variables and data types</h1>
+        
+        <script>
+            var oldVariable = "This is a var variable";
+            let modernVariable = "This is a let variable";
+            const constantVariable = "This is a constant variable";
+
+            console.log(oldVariable)
+            console.log(modernVariable)
+            console.log(constantVariable)
+
+            let aString = "Hello, JavaScript!"; //String
+            let aNumber = 42; //Number
+            let aBoolean = true;
+            let aNullValue = null;
+            let anUndefinedValue; //Undefined
+            let aBigIntValue = 123456789012345678901234567890n; // BigInt
+
+            console.log(typeof aString, aString);
+            console.log(typeof aNumber, aNumber);
+            console.log(typeof aBoolean, aBoolean);
+            console.log(typeof aNullValue, aNullValue); // Note: typeof null is "object" (quirk)
+            console.log(typeof anUndefinedValue, anUndefinedValue)
+            console.log(typeof aBigIntValue, aBigIntValue)
+            
+            // Dynamic typing
+            let dynamic = "I am a string";
+            console.log(dynamic); // String
+            dynamic = 123; // Now it's a number
+            console.log(dynamic); // Number
+        </script>
+        
+    </body>
+</html>

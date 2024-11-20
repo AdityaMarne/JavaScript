@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <h1>Constrol Statements</h1>
+        <script>
+            //If else if and else
+            let age = 18;
+            if( age < 18){
+                console.log("You are underage")
+            }else if(age == 18){
+                console.log("You just turned 18!");
+            } else {
+                console.log("You are an adult.");
+            }
+            
+            //Switch statement
+            let day = "Monday";
+            switch(day){
+                case "Monday":
+                    console.log("Start of thw work week!")
+                    break;
+                case "Saturday":
+                case "Sunday":
+                    console.log("It's the weekend!");
+                    break;
+                default:
+                    console.log("It's a regular weekday.");
+            }
+
+            //For loop
+            for(let i=1; i<=5; i++){
+                console.log(i);
+            }
+
+            //While statement
+            let count=1;
+            while(count <= 3){
+                console.log(count);
+                count++;
+            }
+
+            //do-while loop
+            let number = 1;
+            do {
+                console.log("Number is:", number);
+                number++;
+            } while (number <= 3);
+
+            //for of loop : Iterates over iterable objects like arrays or strings.
+            let fruits = ["Apple", "Banana", "Cherry"];
+            for (let fruit of fruits) {
+                console.log(fruit);
+            }
+
+            //for in loop : Iterates over the properties of an object.
+            let person = {name : "alice", age : 25, city : "Paris"};
+            for(let key in person){
+                console.log(`${key} : ${person[key]}`);
+            }
+        </script>
+
+    </body>
+</html>

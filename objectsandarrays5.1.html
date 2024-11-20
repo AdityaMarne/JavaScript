@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Objects and Arrays in JavaScript</title>
+</head>
+<body>
+  <h1>Objects and Arrays in JavaScript</h1>
+  <p>Check the console for the output.</p>
+
+  <script>
+    // Object Example
+    const car = {
+        brand: "Tesla",
+        model: "Model 3",
+        year: 2022,
+        displayInfo: function() {
+            console.log(`${this.brand} ${this.model}, Year: ${this.year}`);
+        }
+    };
+    console.log("Object Example:");
+    car.displayInfo();
+    car.color = "Red"; // Adding a property
+    console.log(car);
+
+    // Array Example
+    const numbers = [10, 20, 30, 40];
+    console.log("\nArray Example:");
+    console.log("Original Array:", numbers);
+
+    // Array Operations
+    numbers.push(50);
+    console.log("After Push:", numbers);
+
+    numbers.pop();
+    console.log("After Pop:", numbers);
+
+    numbers.unshift(0);
+    console.log("After Unshift:", numbers);
+
+    numbers.shift();
+    console.log("After Shift:", numbers);
+
+    // Iterating Through Array
+    console.log("\nIterating Through Array:");
+    for (let num of numbers) {
+        console.log(num);
+    }
+
+    // Combining Objects and Arrays
+    console.log("\nArray of Objects:");
+    const users = [
+        { name: "Alice", age: 25 },
+        { name: "Bob", age: 30 },
+        { name: "Charlie", age: 35 }
+    ];
+    for (let user of users) {
+        console.log(`${user.name} is ${user.age} years old.`);
+    }
+  </script>
+</body>
+</html>

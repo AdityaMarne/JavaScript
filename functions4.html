@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+       <h1>Functions</h1>
+
+       <script>
+        //Functional declaration : A standard way to define a named function.
+        function greet(name){
+            console.log(`Hello, ${name}!`)
+        }
+        greet("Aditya") // Output: Hello, Aditya!
+
+        //Functional Expression : A function assigned to a variable. It can be anonymous or named.
+        const add = function(a,b){
+            return a+b;
+        }
+
+        console.log(add(5,3)); // Output: 8
+
+        //Arrow Functions : A concise way to write functions. Useful for callbacks and inline functions.
+        const multiply = (a,b) => a*b;
+        console.log(multiply(4,5)); //Output:20
+
+        //Function parameters and arguments
+        //Default parameters : Set default values for function parameters if not provided
+        function greet(name = "Guest") {
+            console.log(`Hello, ${name}!`);
+        }
+        greet(); // Output: Hello, Guest!
+        
+        //Rest parameters : Allows a function to accept an indefinite number of arguments as an array.
+        function sum(...numbers) {
+            total = 0;
+            for(let i of numbers){
+                total += i;
+            }
+            return total
+        }
+        console.log(sum(1, 2, 3, 4)); // Output: 10
+        
+       </script>
+
+    </body>
+</html>

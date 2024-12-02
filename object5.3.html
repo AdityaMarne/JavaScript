@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        
+        <script>
+            /*
+            Problem 1: Create a Product Object
+            Create an object product with:
+
+            Properties: name, price, category.
+            Method: getInfo() that returns "Product: <name>, Category: <category>, Price: $<price>"
+            */
+           const product = {
+            name : "xyz",
+            price : 2000,
+            category : "dsfsf",
+            getInfo() {
+                return `Product: ${this.name}, Category: ${this.category}, Price: $${this.price}`;
+            }
+           }
+
+           console.log(product.getInfo());
+
+           /*
+           Problem 2: Merge Two Objects
+           Write a function mergeObjects(obj1, obj2) that merges two objects. If both have the same key, the second object’s value should overwrite the first.
+           */
+          function mergeObjects(obj1, obj2){
+            return Object.assign({}, obj1, obj2);
+            //Or
+            //return { ...obj1, ...obj2 }; // Spread operator
+          }
+        const obj1 = { a: 1, b: 2 };
+        const obj2 = { b: 3, c: 4 };
+        console.log(mergeObjects(obj1, obj2)); 
+           /*
+           Problem 3: Count Properties
+           Write a function countProperties(obj) that counts and returns the number of properties in an object.
+           */
+          function countProperties(obj){
+
+            return  Object.keys(obj).length;
+          }
+          const sample = { a: 1, b: 2, c: 3 };
+        console.log(countProperties(sample)); 
+          /*
+          Problem 4: Check Key Existence
+        Write a function hasKey(obj, key) that checks if a key exists in an object.
+          */
+          function hasKey(obj, key){
+            return key in obj; 
+        // Or
+        // return obj.hasOwnProperty(key);
+          }
+          const exam  ```pleObj = { name: "John", age: 30 };
+        console.log(hasKey(exampleObj, "name")); // Output: true
+        console.log(hasKey(exampleObj, "gender"))
+        </script>
+    </body>
+</html>

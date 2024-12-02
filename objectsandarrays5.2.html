@@ -1,0 +1,258 @@
+<<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        
+        <script>
+            /*
+            2. Factorial Function
+            Write a function factorial that takes a number as input and returns its factorial. Use recursion for the solution.
+            */
+                function factorial(number){
+                    mul = 1;
+                    for(let i=1; i<=number; i++){
+                        mul *= i;
+                    }
+                    return mul;
+                }
+
+                console.log(factorial(5));
+
+                const fact = function(number){
+                    mul = 1;
+                    for(let i=1; i<=number; i++){
+                        mul *= i;
+                    }
+                    return mul;
+                }
+                console.log(fact(5));
+
+                /*
+                3. Prime Checker
+                Write a function isPrime that checks if a number is a prime number.
+                */
+                const prime = function(number){
+                    if (number <= 1) return false; // Numbers less than or equal to 1 are not prime 
+                    if (number <= 3) return true; 
+                    // 2 and 3 are prime numbers 
+                    if (number % 2 === 0 || number % 3 === 0) return false; // Divisible by 2 or 3 
+                    for (let i = 5; i * i <= number; i += 6) { 
+                        if (number % i === 0 || number % (i + 2) === 0) 
+                            return false;
+                    } 
+                    return true;
+                }
+
+                console.log(prime(7));
+                console.log(prime(10));
+
+                /*
+                4. Find Maximum
+                Write a function findMax that takes any number of arguments and returns the largest one. Use rest parameters.
+                */
+
+                function maximun(...numbers){
+                    let max = -Infinity; // Use -Infinity to handle negative numbers 
+                    for (let i = 0; i < numbers.length; i++) {
+                        if (numbers[i] > max){ 
+                            max = numbers[i]; 
+                        }
+                    }
+                    return max;
+                }
+                console.log(maximun(1, 5, 3, 9, 2))
+
+                /*
+                1. Create a Student Object
+                Create an object student with properties name, age, grade, and a method getDetails that returns a string summarizing 
+                the student's details.
+                */
+                let student = {
+                    name : "Aditya",
+                    age : "23",
+                    grade : 78.6,
+                    getDetails : function(){
+                        console.log(`name = ${this.name}, age = ${this.age}, grade = ${this.grade} `) 
+                    }
+                }
+
+                student.getDetails();
+
+                /*
+                2. Update Object Properties
+                Write a function updateProperty(obj, key, value) that updates the given key in an object to the given value. 
+                If the key does not exist, it should add the new key-value pair.
+                */
+                let car = {
+                    brand: "Tesla", 
+                    model: "Model 3"
+                }
+
+                function updateProperty(obj, key, value){
+                    obj[key] = value;
+                }
+
+                updateProperty(car, "brand", "tata");
+                updateProperty(car, "color", "red")
+                console.log(car);
+
+                /*
+                3. Count Keys
+                Write a function countKeys that takes an object and returns the number of keys it contains.
+                */
+                const example = { a: 1, b: 2, c: 3 }
+                console.log(Object.keys(example));
+                console.log(Object.values(example));
+                console.log(Object.keys(example).length);
+
+                /*
+                4.Write a function getEmployeeNames that returns an array of all employee names.
+                */
+                const company = {
+                    name: "TechCorp",
+                    employees: [
+                        { name: "Alice", role: "Developer" },
+                        { name: "Bob", role: "Manager" },
+                    ],
+                };
+                
+                function getEmployeeNames(obj){
+                    return obj.employees.map(employee => employee.name);
+                }
+
+                console.log(getEmployeeNames(company));
+
+                /*
+                1. Reverse an Array
+                Write a function reverseArray that takes an array as input and returns a new array with its elements reversed.
+                */
+                arr1 = [1,2,3,4,5];
+
+                function reverseArray(arr1){
+                    if (!Array.isArray(arr1)) {
+                        throw new Error("The provided parameter is not an array"); 
+                    }
+
+                    for(let i=0,j=arr1.length-1; i<j; i++,j--){
+                        let temp = arr1[i];
+                        arr1[i] = arr1[j];
+                        arr1[j] = temp;
+                    }
+                    return arr1;
+                }
+                console.log(`Original Array : ${arr1}`);
+                console.log(`Reverse Array : ${reverseArray(arr1)}`);
+
+                /*
+                2. Remove Duplicates
+                Write a function removeDuplicates that takes an array and returns a new array with all duplicate values removed.
+                */
+                arr = [1, 2, 2, 3, 4, 4, 5]
+
+                function removeDuplicates(arr){
+                    if(!Array.isArray(arr)){
+                        throw new Error("The provided parameter is not an array"); 
+                    }
+                    obj = {}
+
+                    for(let i=0; i<arr1.length; i++){
+                        obj[arr1[i]] = 0;
+                    }
+                    return Object.keys(obj);
+                }
+
+                console.log(removeDuplicates(arr));
+
+                /*
+                3. Find Even Numbers
+                Write a function findEvenNumbers that takes an array and returns a new array containing only the even numbers.
+                */
+                arr = [1, 2, 3, 4, 5, 6];
+                function findEvenNumbers(arr){
+                    if(!Array.isArray(arr)){
+                        throw new Error("The provided parameter is not an array"); 
+                    }
+                    even_arr = []
+                    for(let i=0; i<arr1.length; i++){
+                        if(arr[i] % 2 == 0){
+                            even_arr.push(arr[i]);
+                        }
+                    }
+                    return even_arr;
+                }
+
+                console.log(findEvenNumbers(arr));
+                /*
+                4. Array of Squares
+                Write a function squareElements that takes an array of numbers and returns a new array with the square of each number.
+                */
+                arr = [1, 2, 3, 4, 5, 6];
+                 function squareElements(arr){
+                    if(!Array.isArray(arr)){
+                        throw new Error("The provided parameter is not an array"); 
+                    }
+                    for(let i=0; i<arr1.length; i++){
+                        let temp = arr[i] * arr[i];
+                        arr[i] = temp;
+                    }
+                    return arr;
+                 }
+                 console.log(`Square array  :${squareElements(arr)}`);
+
+                /*
+                5.Palindrome Checker
+                Write a function isPalindrome that checks if a given string is a palindrome (reads the same forward and backward). 
+                */
+                let str1 = "hello"
+                function isPalindrome(str1){
+                    for (let i = 0, j = str1.length - 1; i < j; i++, j--){ 
+                        if (str1[i] !== str1[j]) { 
+                            return "It is not a palindrome"; 
+                        } 
+                    }
+                    return "It is a palindrome";
+                }
+
+                console.log(isPalindrome(str1));
+                /*
+                6. Fibonacci Series
+                Write a function fibonacci that takes a number n and returns an array containing the first n Fibonacci numbers.
+                */
+
+                function fibonacci(num){
+                    let arr = [0,1];
+                    let a = arr[0];
+                    let b = arr[1];
+                    for(let i=2; i<num; i++){
+                        let next = a+b;
+                        arr.push(next);
+                        a = b;
+                        b = next;
+                    }
+                    return arr;
+                }
+                console.log(fibonacci(5));
+
+                /*
+                7. Compose Functions
+                Write a function compose that takes two functions f and g and returns a function that applies g first and then f.
+                */
+                const square = x => x*x;
+                const double = x => x * 2;
+                const compose1 = (f, g) => x => f(g(x));
+                const compose2 = (f, g) => x => g(f(x));
+                const composed1 = compose1(square,double);
+                const composed2 = compose2(square,double);
+                console.log(composed1(3));
+                console.log(composed2(3));
+        </script>
+
+    </body>
+</html>

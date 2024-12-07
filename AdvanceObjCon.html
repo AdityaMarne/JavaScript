@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <script>
+            //1. Object Destructuring : Extract specific properties from an object and assign them to variables.
+            const user = {
+                name : "Aditya",
+                age : 23,
+                location : "NY"
+            };
+            const {name, age} = user;
+            console.log(name);
+            console.log(age);
+
+            //2. Object Spread operator : Combine objects or copy an object into another
+            const obj1 = {a:1, b:2};
+            const obj2 = {c:3, d:4};
+            const merge = {...obj1, ...obj2};
+            console.log(merge);
+
+            //3. Computer property names : Use expressions as property names while creating objects.
+            const key = "dynamicKey";
+            const obj = {[key] : "value"};
+            console.log(obj.dynamicKey);
+
+            //4. Prototypes : Every object in JavaScript has a prototype from which it inherits methods and properties.
+            function Person(name){
+                this.name = name;
+            }
+
+            Person.prototype.sayHello = function(){
+                return `Hello, my name is ${this.name}`;
+            }
+
+            const aditya=new Person("Aditya");
+            console.log(aditya.sayHello());
+
+            //5. Object Methods : 
+            // Object.keys(obj): Returns an array of property names.
+            // Object.values(obj): Returns an array of property values.
+            // Object.entries(obj): Returns an array of [key, value] pairs.
+            const example = { a: 1, b: 2, c: 3 };
+            console.log(Object.keys(example));    // Output: ["a", "b", "c"]
+            console.log(Object.values(example)); // Output: [1, 2, 3]
+            console.log(Object.entries(example));// Output: [["a", 1], ["b", 2], ["c", 3]]
+
+            //1. Merge and Add Property
+            function mergeAndAddProperty(obj1, obj2, newKey, newValue){
+                const merge = {...obj1,...obj2};
+                merge[newKey] = newValue;
+                return merge;
+            }
+            console.log(mergeAndAddProperty({ a: 1 }, { b: 2 }, "c", 3));
+
+            //2. Prototype method
+            // Create a constructor function Car with:
+
+            // Properties: brand, model, and year.
+            // A prototype method getDetails() that returns: "Brand: <brand>, Model: <model>, Year: <year>".
+            function Car(brand, model, year){
+                this.brand = brand;
+                this.model = model;
+                this.year = year;
+            }
+            Car.prototype.getDetails = function(){
+                return `${this.brand} ${this.model} ${this.year}`;
+            }
+            const car=new Car("Nexon","ds",2021);
+            console.log(car.getDetails());
+
+//             Problem 3: Dynamic Keys
+            // Write a function addDynamicKey(obj, key, value) that:
+
+            // Adds a dynamic key to the object.
+            // Returns the updated object.
+            function addDynamicKey(obj, key, value) {
+                obj[key] = value; // Add the dynamic key-value pair
+                return obj; // Return the updated object
+            }
+
+            console.log(addDynamicKey({ a: 1 }, "b", 2));
+            
+//             Problem 4: Deep Clone an Object
+            // Write a function deepClone(obj) that creates a deep copy of a nested object.
+            function deepClone(obj){
+                if(obj == null || typeof obj != "object"){
+                    return obj;
+                }
+
+                if(Array.isArray(obj)){
+                    return obj.map(item => deepClone(item));
+                }
+
+                const clone = {};
+                for(let key in obj){
+                    if(obj.hasOwnProperty(key)){
+                        clone[key] = deepClone(obj[key]);
+                    }
+                }
+
+                return clone;
+            }
+            
+            const original = { a: 1, b: { c: 2, d: [3, 4] } };
+            const cloned = deepClone(original);
+            console.log(cloned);
+            console.log(cloned !== original);
+            console.log(cloned.b !== original.b);
+        </script>
+    </body>
+</html>

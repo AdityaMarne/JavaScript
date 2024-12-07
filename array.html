@@ -47,6 +47,109 @@
                 }
             }
 
+            //Double the numbers
+            function doubleNumbers(arr){
+                let temp = 0;
+                for(let i=0; i < arr.length; i++){
+                    temp = arr[i] * 2;
+                    arr[i] = temp;
+                }
+                console.log(arr)
+            }
+            let arr = [1,2,3];
+            doubleNumbers(arr);
+
+            //Flatten a 2D array
+            function flattenArray(matrix){
+                let arr = []
+                for(let i=0; i<matrix.length; i++){
+                    for(let j=0; j<matrix[i].length; j++){
+                        arr.push(matrix[i][j]);
+                    }
+                }
+                return  arr;
+            }
+
+            let matrix1 = [[1, 2], [3, 4], [5, 6]]; 
+            console.log(flattenArray(matrix1));
+
+            //Remove the duplicated
+            function removeDuplicates(arr){
+                let sin_arr = {};
+                let uniqueArr = [];
+                for(let i=0; i<arr.length; i++){
+                    if (!sin_arr[arr[i]]) {
+                        sin_arr[arr[i]] = true; 
+                        uniqueArr.push(arr[i]); 
+                    }
+                }
+                return uniqueArr;
+            }
+
+            console.log(removeDuplicates([1, 2, 2, 3, 4, 4, 5]));
+            
+            //Find the frequency
+            function findFrequncy(arr){
+                freq = {};
+                for(let i=0; i<arr.length; i++){
+                    let element = arr[i];
+                    if(freq[element]){
+                        freq[element] += 1;
+                    }else{
+                        freq[element] = 1;
+                    }
+                }
+                return freq;
+            }
+
+            console.log(findFrequncy([1, 2, 2, 3, 3, 3]));
+
+            //Double the number
+            function doubleNumber(arr){
+                return arr.map(num => num * 2);
+            }
+
+            console.log(doubleNumber([1,2,3,4,5]))
+
+            //Flatten array using reduce
+            function flattenArray(matrix){
+                return matrix.reduce((acc, curr) => acc.concat(curr), []);
+            }
+
+            console.log(flattenArray([[1, 2], [3, 4], [5, 6]]));
+
+            //Remove dupicates
+            //If you want a more concise and modern 
+            //approach, you can use a JavaScript Set 
+            //to automatically filter duplicates: 
+        
+
+            function removeDuplicates(arr){
+                return [...new Set(arr)];
+
+            }
+            console.log(removeDuplicates([1, 2, 2, 3, 4, 4, 5]));
+
+            function findFrequncy(arr) {
+                let freq = {};
+                for (let element of arr) {
+                    freq[element] = (freq[element] || 0) + 1;
+                }
+                
+                let maxFreq = 0;
+                let mostFrequentElement = null;
+
+                for(let key in freq){
+                    if(freq[key] > maxFreq){
+                        maxFreq = freq[key];
+                        mostFrequentElement = key
+                    }
+                }
+
+                return mostFrequentElement;
+            }
+            
+            console.log(findFrequncy([1, 2, 2, 3, 3, 3]));
         </script>
     </body>
 </html>

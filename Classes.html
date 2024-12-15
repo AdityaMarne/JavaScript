@@ -9,8 +9,189 @@
         <link rel="stylesheet" href="">
     </head>
     <body>
-        <script src="">
+        <script>
+            //1. Defining a class
+            //Use the class keyword to define a blueprint for creating objects.
+            class Person{
+
+                constructor(name, age){
+                    this.name = name;
+                    this.age = age;
+                }
+
+                greet() {
+                    return `Hello, my name is ${this.name} and I am ${this.age} years old.`;
+                }
+            }
+
+            const pers1=new Person("aditya",23);
+            console.log(pers1.greet());
+
+            //2. Class Inheritance
+            //Use the extends keyword to create a child class that inherits from a parent class.
+            class Animal{
+                constructor(name){
+                    this.name = name;
+                }
+
+                speak(){
+                    return `${this.name} makes a noise.`; 
+                }
+            }
+
+            class Dog extends Animal {
+                speak() {
+                    return `${this.name} barks.`;
+                }
+            }
+
+            const dog = new Dog("Buddy");
+            console.log(dog.speak());
             
+            //3. Static method
+            //Methods defined with the static keyword belong to the class itself and not the instances.
+            class MathUtils {
+                static add(a, b) {
+                    return a + b;
+                }
+            }
+
+            console.log(MathUtils.add(3, 4)); // Output: 7
+
+            //4. Getter and Setters
+            //Use get and set to define methods for accessing and updating properties.
+            class Rectangle{
+                constructor(width, height){
+                    this.width = width;
+                    this.height = height;
+                }
+
+                get area(){
+                    return this.width * this.height;
+                }
+
+                set dimensions({width, height}){
+                    this.width = width;
+                    this.height = height;
+                }
+            }      
+            
+            const rect = new Rectangle(5, 10);
+            console.log(rect.area);
+
+            rect.dimensions = { width: 7, height: 14 };
+            console.log(rect.area);
+
+            //Pb1. Create a student class
+            class Student{
+                constructor(name, grade){
+                    this.name = name;
+                    this.grade = grade;
+                }
+
+                getDetails(){
+                    return `Student: ${this.name}, Grade: ${this.grade}`;
+                }
+            }
+
+            const stdu=new Student("adu","A+");
+            console.log(stdu.getDetails());
+
+            //Pb2. Create an Employee and Manager Class
+            class Employee{
+                constructor(name, position){
+                    this.name = name;
+                    this.position = position;
+                }
+
+                getInfo(){
+                    return `Name: ${this.name}, Position: ${this.position}`;
+                }
+            }
+
+            class Manager extends Employee{
+                constructor(name, position, teamsize){
+                    super(name, position);
+                    this.teamsize = teamsize;
+                }
+
+                getManagerInfo(){
+                    return `Manager: ${this.name}, Team Size: ${this.teamSize}`;
+                }
+            }
+
+            const man=new Manager("John", "Project Manager", 5);
+            console.log(man.getInfo());
+            console.log(man.getManagerInfo());
+
+            //Pb3. Create a Library Class
+            class Library{
+                constructor(name){
+                    this.name = name;
+                    this.book = [];
+                }
+
+                addBook(book){
+                    this.book.push(book);
+                }
+
+                getBooks(){
+                    return this.book;
+                }
+            }
+
+            const library = new Library("City Library");
+            library.addBook("JavaScript Essentials");
+            library.addBook("Learn Python");
+            console.log(library.getBooks());
+
+            //Pb4. Bank account class
+            class BankAccount{
+                constructor(accountholder, balance){
+                    this.accountholder=accountholder,
+                    this.balance = balance
+                }
+
+                deposit(amount){
+                    this.balance += amount;
+                }
+
+                withdraw(amount){
+                    if (amount > this.balance) {
+                        console.log("Insufficient funds");
+                    } else {
+                        this.balance -= amount;
+                    }
+                }
+
+                getBalance(){
+                    return `Account Holder: ${this.accountHolder}, Balance: ${this.balance}`;
+                }
+            }
+
+            const account = new BankAccount("Alice", 1000);
+            account.deposit(500);
+            account.withdraw(300);
+            console.log(account.getBalance());
+
+            //Problem 5: Shape and Circle Classes
+            class Shape{
+                constructor(name){
+                    this.name = name;
+                }
+            }
+            class Circle extends Shape{
+                constructor(name,radius){
+                    super(name);
+                    this.radius = radius;
+                }
+
+                getArea(){
+                    return 3.14 * this.radius * this.radius;
+                }
+            }
+            const circle = new Circle("Circle", 5);
+            console.log(circle.getArea());
         </script>
     </body>
 </html>
